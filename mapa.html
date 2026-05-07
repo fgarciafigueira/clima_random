@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Clima - Grasse</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a2e; color: white; font-family: sans-serif; height: 100vh; display: flex; flex-direction: column; }
+    #info { padding: 1.5rem 2rem; display: flex; align-items: center; gap: 2rem; }
+    #info h1 { font-size: 1.5rem; margin-right: auto; }
+    #info span { font-size: 1rem; color: #aaa; }
+    #mapa { flex: 1; }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <h1>📍 Grasse, France</h1>
+    <span>🌡️ 12.23°C (sensación 11.7°C)</span>
+    <span>💧 84%</span>
+    <span>💨 1.54 m/s</span>
+    <span>cielo claro</span>
+  </div>
+  <div id="mapa"></div>
+  <script>
+    const mapa = L.map('mapa').setView([43.65783, 6.92537], 5)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(mapa)
+    L.marker([43.65783, 6.92537])
+      .addTo(mapa)
+      .bindPopup('<b>Grasse, France</b><br>12.23°C — cielo claro')
+      .openPopup()
+  </script>
+</body>
+</html>
