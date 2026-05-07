@@ -1,2 +1,4 @@
 Pequeño sistema que trae una ciudad al azar y muestra su clima y su ubicación en el mapa.
 Abre un browser con el mapa y los datos.
+
+Realizado en Node.
